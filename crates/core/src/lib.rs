@@ -87,7 +87,7 @@ pub fn render_v3(target: &image::RgbaImage) -> image::RgbaImage {
 
     let right_mirror = morph(
         target,
-        [(830, 1015), (1213, 1015), (836, 678), (1216, 678)],
+        [(954, 1122), (1393, 1167), (942, 702), (1366, 717)],
         (base.width(), base.height()),
     );
 
