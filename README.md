@@ -7,7 +7,7 @@
 [Releases](https://github.com/sevenc-nanashi/pjsekai-background-gen-rust/releases)から最新のバイナリをダウンロードし、コマンドプロンプトなどで実行してださい。
 
 ```
-Usage: target/debug/pjsekai-background-gen FILE [options]
+Usage: pjsekai-background-gen FILE [options]
 
 Options:
     -o NAME             出力先を指定します。
