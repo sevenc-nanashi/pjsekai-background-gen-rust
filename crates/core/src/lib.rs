@@ -173,3 +173,5 @@ pub fn render_v1(target: &image::RgbaImage) -> image::RgbaImage {
 
     base
 }
+
+pub static VERSION: &str = env!("CARGO_PKG_VERSION");

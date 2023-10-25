@@ -27,3 +27,8 @@ pub fn method(base: Image) -> Result<Image, JsValue> {
 pub fn render(base: Image) -> Result<Image, JsValue> {
     render_v3(base)
 }
+
+#[wasm_bindgen]
+pub fn version() -> String {
+    core::VERSION.to_string()
+}

@@ -1,4 +1,9 @@
-import * as bg from "pjsekai-background-gen-wasm/pjsekai_background_gen_wasm";
+import initBg, * as bg from "pjsekai-background-gen-wasm";
+
+initBg().then(() => {
+  console.log("[worker] initialized");
+  console.log(`[worker] version: ${bg.version()}`);
+});
 
 self.addEventListener(
   "message",
