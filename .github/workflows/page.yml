@@ -34,6 +34,8 @@ jobs:
           wasm-pack build --target web --release
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
+        with:
+          package_json_file: frontend/package.json
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
