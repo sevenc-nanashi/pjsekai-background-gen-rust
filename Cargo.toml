@@ -1,5 +1,6 @@
 [workspace]
 members = ["./crates/cli", "./crates/core", "./crates/wasm"]
+resolver = "2"
 
 [workspace.package]
 version = "0.1.0"
