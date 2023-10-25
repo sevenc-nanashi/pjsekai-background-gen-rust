@@ -8,6 +8,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
+  "packageManager": "pnpm@8.9.2",
   "dependencies": {
     "pjsekai-background-gen-wasm": "../crates/wasm/pkg",
     "uuid": "9.0.1",
