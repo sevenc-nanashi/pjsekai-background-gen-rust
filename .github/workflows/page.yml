@@ -25,9 +25,12 @@ jobs:
           toolchain: stable
       - name: Cache dependencies
         uses: Swatinem/rust-cache@v2
+      - name: Install wasm-pack
+        uses: taiki-e/cache-cargo-install-action@v1
+        with:
+          tool: wasm-pack
       - name: Build wasm
         run: |
-          cargo install wasm-pack
           cd crates/wasm
           wasm-pack build --target web --release
       - name: Setup pnpm
