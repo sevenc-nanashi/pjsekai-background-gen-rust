@@ -25,11 +25,9 @@ jobs:
           toolchain: stable
       - name: Cache dependencies
         uses: Swatinem/rust-cache@v2
-      - name: Install cargo binstall
-        uses: cargo-bins/cargo-binstall@main
       - name: Build wasm
         run: |
-          cargo binstall wasm-pack -y
+          cargo install wasm-pack
           cd crates/wasm
           wasm-pack build --target web --release
       - name: Setup pnpm
