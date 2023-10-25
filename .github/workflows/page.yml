@@ -1,0 +1,57 @@
+name: Build page
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: stable
+      - name: Cache dependencies
+        uses: Swatinem/rust-cache@v2
+      - name: Install cargo binstall
+        uses: cargo-bins/cargo-binstall@v1
+      - name: Build wasm
+        run: |
+          cargo binstall wasm-pack
+          cd crates/wasm
+          wasm-pack build --target web --release
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Build page
+        run: |
+          cd frontend
+          pnpm i
+          pnpm build -- --base /pjsekai-background-gen-rust
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: frontend/dist/
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

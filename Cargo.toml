@@ -1,5 +1,5 @@
 [workspace]
-members = ["./crates/cli", "./crates/core"]
+members = ["./crates/cli", "./crates/core", "./crates/wasm"]
 
 [workspace.package]
 version = "0.1.0"
