@@ -46,7 +46,7 @@ jobs:
         run: |
           cd frontend
           pnpm i
-          pnpm build -- --base /pjsekai-background-gen-rust
+          pnpm build --base /pjsekai-background-gen-rust
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
