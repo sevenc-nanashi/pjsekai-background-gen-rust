@@ -41,6 +41,7 @@ jobs:
         with:
           node-version: 18
           cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
       - name: Build page
         run: |
           cd frontend
