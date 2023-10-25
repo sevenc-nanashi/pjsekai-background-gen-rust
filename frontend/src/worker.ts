@@ -1,4 +1,4 @@
-import * as bg from "pjsekai-background-gen-wasm";
+import * as bg from "pjsekai-background-gen-wasm/pjsekai_background_gen_wasm";
 
 self.addEventListener(
   "message",
